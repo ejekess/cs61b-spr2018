@@ -9,7 +9,7 @@ class ArrayDeque<T>{
 
 
 
-    /** the circular arrays*/
+    /** use the  form:circular arrays*/
     public ArrayDeque(){
          arrays=(T[])new Object[maxSize];
          nextFirst=maxSize/2-1;

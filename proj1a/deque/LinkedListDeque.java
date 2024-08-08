@@ -1,3 +1,5 @@
+package deque;
+
 public class LinkedListDeque<Type>
 {
     /**Double Linked List:use circular sentinel*/

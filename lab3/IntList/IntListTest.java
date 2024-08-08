@@ -1,5 +1,4 @@
 import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 public class IntListTest {
@@ -70,4 +69,12 @@ public class IntListTest {
       * to add a main method. See ArithmeticTest.java for an
       * example. */
 
+
+    @Test(timeout = 1000)/**set time limit to void infinite  circular*/
+    public void testReverse()
+    {
+        IntList myList = IntList.of(0, 1, 2, 3);
+        IntList exp=IntList.of(3,2,1,0);
+       assertEquals(exp,IntList.reverse(myList));
+    }
 }

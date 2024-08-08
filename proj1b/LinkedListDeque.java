@@ -1,4 +1,4 @@
-public class LinkedListDeque<Type>
+public class LinkedListDeque<Type> implements Deque<Type>
 {
     /**Double Linked List:use circular sentinel*/
     private class TypeNode{
@@ -16,6 +16,7 @@ public class LinkedListDeque<Type>
             this.item=n;
         }
 
+
         public  Type getRecursive(int index)
         {
             if(index==0)
@@ -26,6 +27,7 @@ public class LinkedListDeque<Type>
 
     private TypeNode head;
     int size;
+
 
     public LinkedListDeque()
     {
@@ -44,6 +46,7 @@ public class LinkedListDeque<Type>
       return getRecursive(head,index);
     }
 
+    @Override
     public void addFirst(Type item){
         size++;
         TypeNode p=new TypeNode(item);
@@ -53,6 +56,8 @@ public class LinkedListDeque<Type>
         p.prev=head;
 
     }
+
+    @Override
     public void addLast(Type item)
     {
         size++;
@@ -63,16 +68,22 @@ public class LinkedListDeque<Type>
           head.prev=p;
     }
 
+
+    @Override
     public boolean isEmpty()
     {
         return size == 0;
     }
 
+
+    @Override
     public int size()
     {
         return size;
     }
 
+
+    @Override
     public void printDeque()
     {
         TypeNode p=head.next;
@@ -82,6 +93,8 @@ public class LinkedListDeque<Type>
             p=p.next;
         }
     }
+
+    @Override
     public Type removeFirst()
     {
         if(size==0)
@@ -95,6 +108,8 @@ public class LinkedListDeque<Type>
         p.prev=null;
         return p.item;
     }
+
+    @Override
     public Type removeLast()
     {
          if(size==0)
@@ -111,6 +126,7 @@ public class LinkedListDeque<Type>
          return p.item;
     }
 
+    @Override
     public Type get(int index)
     {
         if(index>=size)

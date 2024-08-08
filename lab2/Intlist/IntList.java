@@ -230,5 +230,20 @@ public class IntList {
         out.format(")");
         return out.toString();
     }
+
+
+    public static  IntList  reverse(IntList A)
+    {
+        IntList p=A,prev=null,next;
+        while(p!=null)
+        {
+            next=p.rest;
+            p.rest=prev;
+            prev=p;
+            p=next;
+        }
+        
+        return prev;
+    }
 }
 

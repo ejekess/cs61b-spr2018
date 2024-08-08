@@ -1,4 +1,4 @@
-class ArrayDeque<T>{
+class ArrayDeque<T> implements Deque<T>{
     T[] arrays;
     int maxSize=10;
     int nextFirst;//First =(nextFirst+1)%maxSize;
@@ -7,7 +7,8 @@ class ArrayDeque<T>{
 
 
 
-    /** the circular arrays*/
+    /** use the  form:circular arrays*/
+
     public ArrayDeque(){
          arrays=(T[])new Object[maxSize];
          nextFirst=maxSize/2-1;
@@ -28,7 +29,10 @@ class ArrayDeque<T>{
         maxSize*=2;
         arrays=temp;
     }
-    
+
+
+
+    @Override
     public void addFirst(T item){
         /** extends the arrays:
          * obvious that if the array is full ,
@@ -44,6 +48,8 @@ class ArrayDeque<T>{
         nextFirst=(nextFirst-1+maxSize)%maxSize;
         size++;
     }
+
+    @Override
     public void addLast(T item)
     {
         if(size==maxSize)
@@ -55,20 +61,20 @@ class ArrayDeque<T>{
         size++;
     }
 
+
+    @Override
     public boolean isEmpty()
     {
-       if(size==0)
-       {
-           return true;
-       }
-       return  false;
+      return size==0;
     }
 
+    @Override
     public int size()
     {
       return size;
     }
 
+    @Override
     public void printDeque()
     {
         int Last=(nextLast-1)%maxSize;
@@ -80,6 +86,8 @@ class ArrayDeque<T>{
             temp=(temp+1)%maxSize;
         }
     }
+
+    @Override
     public T removeFirst()
     {
         if(size==0) 
@@ -89,6 +97,9 @@ class ArrayDeque<T>{
         nextFirst=(nextFirst+1)%maxSize;
         return arrays[nextFirst];
     }
+
+
+    @Override
     public T removeLast()
     {
         if(size==0)
@@ -97,6 +108,8 @@ class ArrayDeque<T>{
         return arrays[nextLast];
     }
 
+
+    @Override
     public T get(int index)
     {
         if(index>=size) return null;
